@@ -84,7 +84,7 @@ let lex = program_text => {
   /*Removing all break lines and empty spaces*/
   let trimmed_program = Js.String.trim(program_text);
   let re = [%re "/\\s+/"];
-  let program = Js.String.splitByRe(re, trimmed_program);
+  let program = Js.String.splitByRe(re, trimmed_program)->Belt.Array.keepMap(x => x);
   /* Invoking the lexer for each element of the collection */
   Belt.Array.reduce(program, [], lexCollection);
 };
