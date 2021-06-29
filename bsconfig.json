@@ -16,6 +16,5 @@
   "warnings": {
     "number": "-8-27",
     "error" : "+101"
-  },
-  "namespace": true
+  }
 }
