@@ -121,7 +121,7 @@ function gen_function_code(ast) {
 function generate_code(ast) {
   if (Ast.identi_prog(ast) === true) {
     var node_prog = Ast.ext_prog(ast);
-    console.log("    .globl _main");
+    console.log(".globl _main");
     return gen_function_code(node_prog);
   }
   console.log(Ast.ext_prog_err(ast));

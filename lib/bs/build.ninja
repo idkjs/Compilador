@@ -3,7 +3,7 @@ rule astj
   command = /Users/mando/Github/Compilador/node_modules/bs-platform/darwin/bsc.exe -w -8-27 -warn-error +101 -bs-v 9.0.2  -absname -bs-ast -o $out $i
 o src/Ast.ast : astj ../../src/Ast.re
 rule deps
-  command = /Users/mando/Github/Compilador/node_modules/bs-platform/darwin/bsb_helper.exe -hash df340b73dc3fc78fdc78e77695d3bcea $in
+  command = /Users/mando/Github/Compilador/node_modules/bs-platform/darwin/bsb_helper.exe -hash 326ec59c880b98738b43fe3a18dafc99 $in
   restat = 1
 o src/Ast.d : deps src/Ast.ast
 rule mij
@@ -29,3 +29,6 @@ o src/Parser.cmj src/Parser.cmi ../../src/Parser.bs.js : mij src/Parser.ast
 o src/Generator.ast : astj ../../src/Generator.re
 o src/Generator.d : deps src/Generator.ast
 o src/Generator.cmj src/Generator.cmi ../../src/Generator.bs.js : mij src/Generator.ast
+o src/ParserEnglish.ast : astj ../../src/ParserEnglish.re
+o src/ParserEnglish.d : deps src/ParserEnglish.ast
+o src/ParserEnglish.cmj src/ParserEnglish.cmi ../../src/ParserEnglish.bs.js : mij src/ParserEnglish.ast

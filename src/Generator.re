@@ -60,34 +60,59 @@ let generate_exp = (ast_exp: Ast.exp) =>
   };
 
 let visit_statement = (name: string) => {
-  let return_statement = "    " ++ Words.tradu(name); /*Imprime la linea de código del return*/
+  let return_statement = "    " ++ Words.tradu(name); /*Print the return line of code*/
   Js.log(return_statement);
 };
-
 let generate_statement = ast =>
   if (Ast.identi_statement(ast) == true) {
-    /*Revisa que el nodo sea del tipo statement*/
-    let name_state = Ast.ext_name_statement(ast); /*Almacena el nombre del token solicitado, en este caso el return*/
-    let node_exp = Ast.ext_statement(ast); /*Obtenemos el nodo de tipo exp*/
-    generate_exp(node_exp); /*Mandamos al generador de exp*/
-    visit_statement(name_state); /*Se encarga de pasar el return a ensamblador*/
+    /* Check that the node is of type statement */
+    let name_state = Ast.ext_name_statement(ast); /* Stores the name of the requested token, in this case the return */
+    let node_exp = Ast.ext_statement(ast); /* We get the node of type exp */
+    generate_exp(node_exp); /* We send the generator of exp */
+    visit_statement(name_state); /* It takes care of passing the return to assembler */
   };
+// let generate_statement = ast =>
+//   if (Ast.identi_statement(ast) == true) {
+//     /*Revisa que el nodo sea del tipo statement*/
+//     let name_state = Ast.ext_name_statement(ast); /*Almacena el nombre del token solicitado, en este caso el return*/
+//     let node_exp = Ast.ext_statement(ast); /*Obtenemos el nodo de tipo exp*/
+//     generate_exp(node_exp); /*Mandamos al generador de exp*/
+//     visit_statement(name_state); /*Se encarga de pasar el return a ensamblador*/
+//   };
 
+// let gen_function_code = ast =>
+//   if (Ast.identi_fun_decl(ast) == true) {
+//     /*Reviso que el nodo sea del tipo fun_decl*/
+//     let functionName = Ast.ext_name_fun_decl(ast); /*Almacena el nombre de la fun*/
+//     let node_statement = Ast.ext_fun_decl(ast); /*Almacena el nodo statement*/
+//     Js.log("_" ++ functionName ++ ":"); /*Imprime parte del código*/
+//     generate_statement(node_statement); /*Lo mandamos al generador de statement*/
+//   };
+
+// let generate_code = ast =>
+//   if (Ast.identi_prog(ast) == true) {
+//     /*Comprueba que el AST este correcto*/
+//     let node_prog = Ast.ext_prog(ast); /*Almacenamos el nodo prog*/
+//     Js.log("    .globl _main"); /*Imprime el encabezado*/
+//     gen_function_code(node_prog); /*Manda el AST al generador de funciones*/
+//   } else {
+//     Ast.ext_prog_err(ast) |> Js.log; /*En caso de que haya un error notificarlo*/
+//   };
 let gen_function_code = ast =>
   if (Ast.identi_fun_decl(ast) == true) {
-    /*Reviso que el nodo sea del tipo fun_decl*/
-    let functionName = Ast.ext_name_fun_decl(ast); /*Almacena el nombre de la fun*/
-    let node_statement = Ast.ext_fun_decl(ast); /*Almacena el nodo statement*/
-    Js.log("_" ++ functionName ++ ":"); /*Imprime parte del código*/
-    generate_statement(node_statement); /*Lo mandamos al generador de statement*/
+    /*  I check that the node is of type fun_decl */
+    let functionName = Ast.ext_name_fun_decl(ast); /*  Stores the name of the fun */
+    let node_statement = Ast.ext_fun_decl(ast); /*Stores the statement node*/
+    Js.log("_" ++ functionName ++ ":"); /*Print part of the code */
+    generate_statement(node_statement); /*  We send it to the statement generator */
   };
 
 let generate_code = ast =>
   if (Ast.identi_prog(ast) == true) {
-    /*Comprueba que el AST este correcto*/
-    let node_prog = Ast.ext_prog(ast); /*Almacenamos el nodo prog*/
-    Js.log("    .globl _main"); /*Imprime el encabezado*/
-    gen_function_code(node_prog); /*Manda el AST al generador de funciones*/
+    /*  Check that the AST is correct */
+    let node_prog = Ast.ext_prog(ast); /*  We store the prog node */
+    Js.log(".globl _main"); /*  Print the header */
+    gen_function_code(node_prog); /*  Send the AST to the function generator */
   } else {
-    Ast.ext_prog_err(ast) |> Js.log; /*En caso de que haya un error notificarlo*/
+    Ast.ext_prog_err(ast) |> Js.log; /*  In case there is an error, notify it */
   };

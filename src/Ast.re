@@ -23,39 +23,43 @@ type prog =
   | Prog(fun_decl)
   | Err_prog(string);
 
-let identi_prog = (t: prog) => {
-  /*Para identificar que el nodo sea de tipo prog*/
-  switch (t) {
-  | Prog(fun_decl) => true
-  | Err_prog(string) => false
+let identi_prog = (t: prog) =>
+  /** To identify that the node is of type prog */
+  {
+    switch (t) {
+    | Prog(fun_decl) => true
+    | Err_prog(string) => false
+    };
   };
-};
 
-let identi_fun_decl = (t: fun_decl) => {
-  /*Para identificar que el nodo sea de tipo fun_decl*/
-  switch (t) {
-  | Err_fun(string) => false
-  | Fun(string, statement) => true
+let identi_fun_decl = (t: fun_decl) =>
+  /** To identify that the node is of type fun_decl * */
+  {
+    switch (t) {
+    | Err_fun(string) => false
+    | Fun(string, statement) => true
+    };
   };
-};
 
-let identi_statement = (t: statement) => {
-  /*Para identificar que el nodo sea de tipo statement*/
-  switch (t) {
-  | Assign(string, exp) => true
-  | Return(exp) => true
-  | Err_state(string) => false
+let identi_statement = (t: statement) =>
+  /** To identify that the node is of type fun_decl statement */
+  {
+    switch (t) {
+    | Assign(string, exp) => true
+    | Return(exp) => true
+    | Err_state(string) => false
+    };
   };
-};
 
-let identi_exp = (t: exp) => {
-  /*Para identificar que el nodo sea de tipo exp*/
-  switch (t) {
-  | Expr(termino) => true
-  | Err_exp(string) => false
-  | BinOp(token, ter1, ter2) => true
+let identi_exp = (t: exp) =>
+  /** To identify that the node is of type fun_decl exp */
+  {
+    switch (t) {
+    | Expr(termino) => true
+    | Err_exp(string) => false
+    | BinOp(token, ter1, ter2) => true
+    };
   };
-};
 let identi_termino = (t: termino) => {
   switch (t) {
   | Ter(factor) => true
@@ -71,26 +75,29 @@ let identi_factor = (t: factor) => {
   };
 };
 
-let ext_prog = (t: prog) => {
-  /*Para extraer el nodo fun_decl de prog*/
-  switch (t) {
-  | Prog(fun_decl) => fun_decl
+let ext_prog = (t: prog) =>
+  /** To extract the fun_decl node from prog */
+  {
+    switch (t) {
+    | Prog(fun_decl) => fun_decl
+    };
   };
-};
 
-let ext_name_fun_decl = (t: fun_decl) => {
-  /*Para extraer el nombre de la fun*/
-  switch (t) {
-  | Fun(string, statement) => string
+let ext_name_fun_decl = (t: fun_decl) =>
+  /** To extract the name of the fun */
+  {
+    switch (t) {
+    | Fun(string, statement) => string
+    };
   };
-};
 
-let ext_fun_decl = (t: fun_decl) => {
-  /*Para extraer el nodo statement de fun_decl*/
-  switch (t) {
-  | Fun(string, statement) => statement
+let ext_fun_decl = (t: fun_decl) =>
+  /** To extract the node statement from fun_decl */
+  {
+    switch (t) {
+    | Fun(string, statement) => statement
+    };
   };
-};
 
 let ext_name_statement = (t: statement) => {
   switch (t) {
@@ -106,33 +113,37 @@ let ext_statement = (t: statement) => {
   };
 };
 
-let ext_prog_err = (t: prog) => {
-  /*Para extraer el nodo fun_decl de prog*/
-  switch (t) {
-  | Err_prog(string) => string
+let ext_prog_err = (t: prog) =>
+  /** To extract the node fun_decl from prog*/
+  {
+    switch (t) {
+    | Err_prog(string) => string
+    };
   };
-};
 
-let ext_fun_err = (t: fun_decl) => {
-  /*Para extraer el nodo fun_decl de prog*/
-  switch (t) {
-  | Err_fun(string) => string
+let ext_fun_err = (t: fun_decl) =>
+  /** To extract the node fun_decl from prog*/
+  {
+    switch (t) {
+    | Err_fun(string) => string
+    };
   };
-};
 
-let ext_state_err = (t: statement) => {
-  /*Para extraer el nodo fun_decl de prog*/
-  switch (t) {
-  | Err_state(string) => string
+let ext_state_err = (t: statement) =>
+  /** To extract the node fun_decl from prog*/
+  {
+    switch (t) {
+    | Err_state(string) => string
+    };
   };
-};
 
-let ext_exp_err = (t: exp) => {
-  /*Para extraer el nodo fun_decl de prog*/
-  switch (t) {
-  | Err_exp(string) => string
+let ext_exp_err = (t: exp) =>
+  /** To extract the node fun_decl from prog*/
+  {
+    switch (t) {
+    | Err_exp(string) => string
+    };
   };
-};
 let ext_ter_err = (t: termino) => {
   switch (t) {
   | Err_ter(string) => string
