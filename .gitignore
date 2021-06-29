@@ -3,5 +3,4 @@
 .bsb.lock
 npm-debug.log
 node_modules
-lib/bs/build.ninja
 lib/bs
