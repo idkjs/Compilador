@@ -48,7 +48,7 @@ function generate_termino(ast) {
               RE_EXN_ID: "Match_failure",
               _1: [
                 "Generator.re",
-                20,
+                30,
                 2
               ],
               Error: new Error()
@@ -72,7 +72,7 @@ function generate_exp(ast_exp) {
               RE_EXN_ID: "Match_failure",
               _1: [
                 "Generator.re",
-                31,
+                44,
                 2
               ],
               Error: new Error()

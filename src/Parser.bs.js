@@ -55,7 +55,7 @@ function parse_factor(tokenList) {
         _1: [
           "Parser.re",
           2,
-          8
+          6
         ],
         Error: new Error()
       };
@@ -112,8 +112,8 @@ function parse_termino(tokenList) {
         RE_EXN_ID: "Match_failure",
         _1: [
           "Parser.re",
-          24,
-          12
+          41,
+          8
         ],
         Error: new Error()
       };
@@ -170,8 +170,8 @@ function parse_exp(tokenList) {
         RE_EXN_ID: "Match_failure",
         _1: [
           "Parser.re",
-          45,
-          12
+          79,
+          8
         ],
         Error: new Error()
       };
@@ -228,8 +228,8 @@ function parse_statement(tokenList) {
           RE_EXN_ID: "Match_failure",
           _1: [
             "Parser.re",
-            68,
-            16
+            122,
+            10
           ],
           Error: new Error()
         };
@@ -238,8 +238,8 @@ function parse_statement(tokenList) {
         RE_EXN_ID: "Match_failure",
         _1: [
           "Parser.re",
-          63,
-          8
+          115,
+          6
         ],
         Error: new Error()
       };
@@ -314,8 +314,8 @@ function parse_function(tokenList) {
                   RE_EXN_ID: "Match_failure",
                   _1: [
                     "Parser.re",
-                    96,
-                    32
+                    169,
+                    18
                   ],
                   Error: new Error()
                 };
@@ -324,8 +324,8 @@ function parse_function(tokenList) {
                 RE_EXN_ID: "Match_failure",
                 _1: [
                   "Parser.re",
-                  92,
-                  24
+                  163,
+                  14
                 ],
                 Error: new Error()
               };
@@ -334,8 +334,8 @@ function parse_function(tokenList) {
               RE_EXN_ID: "Match_failure",
               _1: [
                 "Parser.re",
-                90,
-                20
+                160,
+                12
               ],
               Error: new Error()
             };
@@ -344,8 +344,8 @@ function parse_function(tokenList) {
             RE_EXN_ID: "Match_failure",
             _1: [
               "Parser.re",
-              88,
-              16
+              157,
+              10
             ],
             Error: new Error()
           };
@@ -354,8 +354,8 @@ function parse_function(tokenList) {
           RE_EXN_ID: "Match_failure",
           _1: [
             "Parser.re",
-            85,
-            12
+            153,
+            8
           ],
           Error: new Error()
         };
@@ -364,8 +364,8 @@ function parse_function(tokenList) {
         RE_EXN_ID: "Match_failure",
         _1: [
           "Parser.re",
-          83,
-          8
+          150,
+          6
         ],
         Error: new Error()
       };

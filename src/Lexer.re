@@ -27,7 +27,7 @@ let getConstant = program =>
   };
 
 let getReturn = program => {
-  let return_size =Js.String.length("return");
+  let return_size = Js.String.length("return");
   (
     Token.ReturnKeyword,
     Js.String.substringToEnd(~from=return_size, program),
@@ -36,17 +36,13 @@ let getReturn = program => {
 
 let getInt = program => {
   let int_size = Js.String.length("Int");
-  (
-    Token.IntKeyword,
-    Js.String.substringToEnd(~from=int_size, program)
-  )
-}
+  (Token.IntKeyword, Js.String.substringToEnd(~from=int_size, program));
+};
 
 let getComplexTokens = program =>
-  if(Js.String.startsWith("int", program)){
+  if (Js.String.startsWith("int", program)) {
     getInt(program);
-  }
-  else if (Js.String.startsWith("return", program)) {
+  } else if (Js.String.startsWith("return", program)) {
     getReturn(program);
   } else if (Js.String.match(const_regex, program) != None) {
     getConstant(program);
@@ -84,7 +80,8 @@ let lex = program_text => {
   /*Removing all break lines and empty spaces*/
   let trimmed_program = Js.String.trim(program_text);
   let re = [%re "/\\s+/"];
-  let program = Js.String.splitByRe(re, trimmed_program)->Belt.Array.keepMap(x => x);
+  let program =
+    Js.String.splitByRe(re, trimmed_program)->Belt.Array.keepMap(x => x);
   /* Invoking the lexer for each element of the collection */
   Belt.Array.reduce(program, [], lexCollection);
 };
